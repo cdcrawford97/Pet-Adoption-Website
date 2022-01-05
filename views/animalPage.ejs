@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/animalPage.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/comments.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Animal Page</title>
+</head>
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+    <!--Adoption Section-->
+    <section class="adoption">
+        <div class="navigation-link">
+            <a href='/adoption'><i class="fas fa-arrow-left back-arrow"></i>
+                Back to all Pets for Adoption
+            </a>
+        </div>
+        <div class="animal-header">
+            <div id="headerContainer">
+                <h1 class="animal-greeting"> Meet <%= advert.name %> </h1>
+            </div>
+            <div class="share-button">Share <i class="fas fa-external-link-alt share"></i></div>
+        </div>
+
+        <div class="adoption-container">
+            <div class="animal-details box">
+                <!--Swiper-->
+                <div
+                    style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                    class="swiper mySwiper2"
+                >
+                    <div class="swiper-wrapper">
+                        <% advert.images.forEach(image => { %>
+                            <div class="swiper-slide">
+                                <img src="/uploads/<%= image %>" />
+                            </div>
+                        <% }) %>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div thumbsSlider="" class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <% advert.images.forEach(image => { %>
+                            <div class="swiper-slide">
+                                <img src="/uploads/<%= image %>" />
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+
+                <div class="main-info">
+                    <div>
+                        <h1 class="animal-name-heading">Name</h1>
+                        <h2 class="animal-name"><%= advert.name %></h2>
+                    </div>
+                    <div class="location-container">
+                        <h1 class="animal-location-heading">Location</h1>
+                        <h2 class="animal-location"><%= advert.location %></h2>
+                    </div>
+                </div>
+                <div class="additional-info">
+                    <h2>Information</h2>
+                    <div class="info-container">
+                        <div class="info-box">
+                            <div class="icon-wrapper">
+                                <% if (advert.gender == 'Male') { %>
+                                    <i class="fas fa-mars"></i>
+                                <%} else if(advert.gender == 'Female') { %>
+                                    <i class="fas fa-venus"></i>
+                                <% } %>
+                            </div>
+                            <p>Gender: <%= advert.gender %></p>
+                        </div>
+                        <div class="info-box">
+                            <div class="icon-wrapper"><i class="fas fa-gift"></i></div>
+                            <p>Age: <%= advert.ageString %></p>
+                        </div>
+                        <div class="info-box">
+                            <div class="icon-wrapper"><i class="fas fa-award"></i></div>
+                            <p>Breed: <%= advert.breed %></p>
+                        </div>
+                        <div class="info-box">
+                            <div class="icon-wrapper"><i class="fas fa-neuter"></i></div>
+                            <p>Neutered: 
+                                <% if (advert.neutered == true) { %>
+                                    Yes
+                                <%} else { %>
+                                    No
+                                <% } %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-options">
+                <div class="apply-section box">
+                    <h2>Adopt</h2>
+                    <p>Fill out a short form to submit your application for adoption.</p>
+                    <% if (!advert.adopted) { %> 
+                        <div onclick="location.href='<%= advert.id %>/application'" class="apply-button button">Apply for Adoption</div>
+                    <%} else { %>
+                        <div class="apply-button button">No Longer Available</div>
+                    <% } %> 
+                </div>
+                <div class="donation-section box">
+                    <h2>Support</h2>
+                    <p>All donations will go towards veterinary care, food, shelter and toys for all animals under our care.</p>
+                    <div class="donation-dropdown">
+                        <select name="donation" id="donation">
+                            <option value="" disabled selected>Select amount</option>
+                            <option value="5">£5</option>
+                            <option value="10">£10</option>
+                            <option value="25">£25</option>
+                            <option value="50">£50</option>
+                            <option value="50">Custom Amount</option>
+                        </select>
+                    </div>
+                    <div class="donate-button button">Donate</div>
+                </div>
+                <div class="admin-buttons">
+                    <% if (admin) { %> 
+                        <button onclick="location.href='edit/<%= advert.id %>'" class="adminButton edit">Edit</button>
+                        <form action="/advertise/<%= advert.id %>?_method=DELETE" method="POST">
+                            <button class="adminButton delete" type="submit">Delete</button>
+                        </form>
+                    <% } %> 
+                </div>
+            </div>
+        </div>        
+    </section>
+
+    <!--Comments-->
+    <section class="comment-section">
+        <div id="title">
+            <h1>Comments</h1>
+        </div>
+        <% comments.forEach(comment => { %>
+
+            <!--Parent Comment-->
+            <div class="comment-container">
+                <div class="comment-block">
+                    <i style="font-size: 30px; margin-right: 30px;" class="fas fa-user"></i>
+                    <div class="userInfo">
+                        <div class="name-date">
+                            <b><%= comment.username %></b>
+                            <p><%= comment.createdAt.toLocaleString() %></p>
+                        </div>
+                        <p style="margin-bottom: 10px;"><%= comment.comment %></p>
+                        <a onclick="myFunction('comment-<%= comment._id %>-reply-form')" class="reply">Reply</a>
+                    </div>
+                </div>
+            </div> 
+
+            <!-- Reply form start -->
+                <form style="display:none" method="POST" action="/advertise/<%= advert.id %>/reply" class="reply-form" id="comment-<%= comment._id %>-reply-form">
+                    <textarea name="commentReply" placeholder="Reply to comment" rows="4"></textarea>
+                    <input type="hidden" class="parentId" name="parentId" value=<%= comment._id%> >
+                    <div class="reply-buttons-container">
+                        <button class="submit-reply" type="submit">Submit</button>
+                        <button class="cancel-reply"onclick="myFunction('comment-<%= comment._id %>-reply-form')" type="button">Cancel</button>
+                    </div>
+                </form>
+            <!-- Reply form end -->
+
+            <% comment.childComments.forEach(childComment => { %>
+                <!--Child Comment-->
+                <div id="child-comment-container">
+                    <div class="comment-block">
+                        <i style="font-size: 30px; margin-right: 30px;" class="fas fa-user"></i>
+                        <div class="userInfo">
+                            <div class="name-date">
+                                <b><%= childComment.username %></b>
+                                <p style="float: right"><%= childComment.createdAt.toLocaleString() %></p>
+                            </div>
+                            <p style="margin-bottom: 5px;"><%= childComment.comment %></p>
+                        </div>
+                    </div>
+                </div> 
+            <% }) %>
+        <% }) %>
+
+        <!--Submit Comment Form-->
+        <div id="submit-comment">
+            <form id="comment-form" method="POST" action="/advertise/<%= advert.id %>">
+                <input type="hidden" name="username">
+                <label for="comment">Comment</label>
+                <textarea id="comment-textarea" name="comment" placeholder="Type your comment..."></textarea>
+                <input id="commentSubmit" type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    
+    <!--Footer-->
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+    
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/javascripts/swiper.js"></script>
+</body>
+</html>

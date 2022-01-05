@@ -1,0 +1,60 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* declaring global css variables */
+:root {
+    --navbar-height: 7vh;
+
+    /* ==== Colours ==== */
+    --first-color: #4dbdb8;
+    --first-color-lighter: #e6eeeb;
+    --second-color: #ff8e65;
+    --second-color-alt: #ff6f45;
+    --second-color-lighter: #f8e0d5;
+    --text-color: #1a1e1e;
+    --text-color-gray: #797979;
+    --container-color: #ffffff;
+    --background-color: #f4f4f4;
+    --divider-color: rgb(223, 223, 223);
+
+    /* ==== Font & typography ==== */
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /* ==== Font weight ==== */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /* ==== Margins ==== */
+    --mb-0-25: .25rem;
+    --mb-0-5: .25rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /* ==== Z-index ==== */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+
+input:focus, select:focus, textarea:focus{
+  border-color: var(--first-color);
+  box-shadow: 0 0 3px var(--first-color);
+  outline: none;
+}

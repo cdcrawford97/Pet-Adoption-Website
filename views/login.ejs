@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/registerAndLogin.css">
+    <link rel="stylesheet" href="/stylesheets/alertMessages.css">
+    <!-- Icon Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+    <section>
+        <div class="login-container">
+            <form id="login-form" method="POST" action="/users/login" >
+                <!-- Login Title -->
+                <div id="form-title">
+                    <i style="font-size: 40px; margin-bottom:5px; margin-right: 15px;" class="fas fa-sign-in-alt"></i>
+                    <h1>Login</h1>
+                </div>
+                <!-- Validation Messages -->
+                <% include ./partials/messages %>
+                <!-- Email -->
+                <label class="main-labels" for="email">Email</label>
+                <input 
+                    required type="email" 
+                    placeholder="Enter Email" 
+                    id="email" 
+                    name="email" 
+                    class="boxes" 
+                />
+                <!-- Password -->
+                <label class="main-labels" for="password">Password</label>
+                <input 
+                    required 
+                    type="password" 
+                    placeholder="Enter Password" 
+                    id="password" 
+                    name="password" 
+                    class="boxes"
+                />
+                <!-- Submit Button -->
+                <div id="submit-btn">
+                    <input type="submit" value="Login" class="submit">
+                </div>
+                <p style="text-align: center;"> No Account? <a href='/users/register'>Register</a></p>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+    
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+</body>
+</html>

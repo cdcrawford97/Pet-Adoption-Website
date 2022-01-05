@@ -1,0 +1,394 @@
+section{
+    width: auto;
+    height: auto;
+    padding-bottom: 30px;
+    padding-top: calc(10vh + 30px);
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adoption-content{
+    display: grid;
+    width: 85%;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 30px;
+}
+
+/******* Search Box CSS *******/
+
+.search-box{
+    grid-area: 1 / 1 / 4 / 2;
+    height: auto;
+    width: auto;
+    margin-bottom: auto;
+    padding: 25px 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--container-color);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.search-box h1{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.search-box .main-labels,
+.search-box h2{
+    color: var(--text-color-gray);
+    font-size: 1em;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.boxes {
+    border-radius: 5px;
+    border-style: none;
+    border: lightgray 1px solid;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 5px 5px 5px 15px;
+    margin-bottom: 15px;
+}
+
+.search-box .submit{
+    border-radius: 3px;
+    border-style: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 5px 0px;
+    color: #fff;
+    background: var(--first-color);
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+
+.search-box .submit:hover{
+    opacity: 0.85;
+}
+
+
+.search-box .clear{
+    border-radius: 3px;
+    border-style: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 5px 0px;
+    color: black;
+    background: lightgray;
+    cursor: pointer;
+}
+
+.search-box .clear:hover{
+    filter: brightness(90%);
+}
+
+.search-options{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+}
+  
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: lightgray;
+}
+  
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+  
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: var(--first-color);
+}
+  
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/******* Header CSS *******/
+
+.header{
+    grid-area: 1 / 2 / 2 / 3;
+    padding: 0px 30px;
+    border-bottom: 2px solid var(--divider-color);
+}
+
+.header h1{
+    margin-bottom: 15px;
+}
+
+#sort{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+#sort label{ 
+    margin-right: 20px;
+    padding-top: 4px;
+}
+
+#sort-dropdown{
+    font-weight: 400;
+}
+
+
+/******* Advert CSS *******/
+
+.adverts-container{
+    grid-area: 2 / 2 / 3 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.advert{
+    background: var(--container-color);
+    width: calc(25% - 15px);
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform ease 300ms;
+}
+
+.advert:hover{
+    transform: translate(0, -3px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.advert img{
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.details-container{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.advert-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.advert-details .left-column{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: .75rem;
+    white-space: nowrap;
+}
+
+.advert-details .right-column{
+    display: flex;
+    gap: 5px;
+    font-size: .65rem;
+    justify-self: end;
+}
+
+.advert-details .right-column i{
+    margin-top: .5px;
+    color: var(--first-color);
+}
+
+.advert-details .left-column .pet-name{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.advert-details .left-column .centre-name{
+    font-weight: 500;
+}
+
+.advert-details .left-column a{
+    text-decoration: none;
+}
+
+.advert .footer{
+    display: flex;
+    justify-content: space-between
+}
+
+.advert .footer-item{
+    font-size: .75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.advert .footer-item i{
+    color: var(--text-color-gray);
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+
+/******* Pagination Styling *******/
+
+.pagination {
+    grid-area: 3 / 2 / 4 / 3;
+    margin-top: 40px;
+    justify-self: center;
+}
+
+.pagination button {
+    color: black;
+    float: left;
+    font-weight: 500;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+  
+.pagination button.active {
+    background-color: white;
+    color: var(--text-color);
+}
+  
+.pagination button:hover:not(.active) {
+    background-color: white;
+}
+  
+.pagination button:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+  
+.pagination button:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/******* Media Queries *******/
+
+@media screen and (max-width: 1400px) {
+    .advert{
+        width: calc(33.33% - 14px);
+    }
+    .advert .footer-item{
+        font-size: .7rem;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .advert .footer-item{
+        font-size: .65rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .advert{
+        width: calc(50% - 10px);
+    }
+    .advert .footer-item{
+        font-size: .75rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .adoption-content{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+    .header {
+        grid-area: 1 / 1 / 2 / 2;
+        padding-bottom: 10px;
+    }
+    .search-box {
+        grid-area: 2 / 1 / 3 / 2;
+        margin-top: 20px;
+    }
+    .adverts-container{
+        grid-area: 3 / 1 / 4 / 2;
+    }
+    .pagination{
+        grid-area: 4 / 1 / 5 / 2;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .advert .footer-item{
+        font-size: .65rem;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .advert{
+        width: 100%;
+    }
+    .advert img{
+        height: 310px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .header{
+        display: none;
+    }
+}

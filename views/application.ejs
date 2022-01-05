@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/adoptionAd.css">
+    <!-- Icon Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Adoption Application</title>
+</head>
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+
+    <section>
+        <div class="adoption-form-container">
+            <div class="adoption-form-wrapper">
+                <!-- Back Navigation Link -->
+                <div id="navigation-container">
+                    <a href='/advertise/<%= id %>'><i class="fas fa-arrow-left"></i>Back to <%= advert.name %>'s page</a>
+                </div>
+                <!-- Form -->
+                <form id="adoption-form" method="POST" action="/advertise/:id/application" >
+                    <!-- Title -->
+                    <h1 id="form-title"><%= advert.name %>'s Adoption Application</h1>
+                    <p>Please enter your details below and click on the 'Submit' button to submit your Application. 
+                    Fields marked with an asterisk (*) are mandatory.</p>
+
+                    <!-- Name -->
+                    <h2>Your Details</h2>
+                    <label class="main-labels" for="name">Name *</label>
+                    <input required type="text" id="name" name="adopterName" class="boxes" value="<%= user.name %>">
+
+                    <!-- Date of Birth -->
+                    <label class="main-labels" for="applicant-dob">Date of Birth *</label>
+                    <input required id="applicant-dob" type="date" name="adopterDOB" class="boxes">
+
+                    <!-- Location and Contact -->
+                    <h2>Location & Contact Details</h2>
+                    <label class="main-labels" for="location">Town/Postcode *</label>
+                    <input required type="text" id="location" name="adopterLocation" class="boxes">
+                    
+                    <!-- Phone number -->
+                    <label class="main-labels" for="phone">Phone Number *</label>
+                    <input required  type="phone" id="phone" name="adopterPhone" class="boxes">
+
+                    <!-- Email Address -->
+                    <label class="main-labels" for="email">Email *</label>
+                    <input required type="email" id="email" name="adopterEmail" class="boxes" value="<%= user.email %>">
+
+                    <h2>Reasons for Adoption</h2>
+                    <!-- Reasons for adoption -->
+                    <label class="main-labels" id="reasons-label" for="reasons">Please briefly explain your interest in adopting this pet</label>
+                    <textarea required id="reasons" name="reasons" rows="5" cols="50" class="boxes"></textarea>
+                    <label class="container">Do you have a garden?
+                        <input type="checkbox" id="garden" name="hasGarden" value="true">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Do you have any children?
+                        <input type="checkbox" id="children" name="hasChildren" value="true">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Do you have any other pets?
+                        <input type="checkbox" id="hasPets" name="hasPets" value="true">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <!-- Advert Id -->
+                    <input type="hidden" id="advertId" name="advertId" value=<%= advert._id %> >
+                    
+                    <!-- Submit Application -->
+                    <div id="submit-btn">
+                        <input type="submit" value="Submit Application" class="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+    
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+    <script src="/javascripts/adoptionAd.js"></script>
+    <script>
+        //restricts dob selection to less than current date
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("adopterDOB")[0].setAttribute('max', today);
+    </script>
+</body>
+</html>

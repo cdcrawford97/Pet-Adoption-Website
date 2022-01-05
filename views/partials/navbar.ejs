@@ -1,0 +1,71 @@
+<!-- Logo -->
+<div class="logo__container">
+    <img src="/images/logo.svg" alt="logo" id="logo">
+    <!-- <p id="brand-name">PET ACTION</p> -->
+    <a id="brand-name" href="/">PET ACTION</a>
+</div>
+<!-- Navbar Links -->
+<ul class="nav-links">
+    <li>
+        <a <% if (page_name === 'home') { %> 
+            id="active-link" 
+            <% } else { %> 
+                class="link" 
+            <% } %> 
+            href="/">Home
+        </a>
+    </li>
+    <li>
+        <a <% if (page_name === 'adoption') { %> 
+            id="active-link" 
+            <% } else { %> 
+                class="link" 
+            <% } %> 
+            href="/adoption">Adoption
+        </a>
+    </li>
+    <li>
+        <a <% if (page_name === 'advertise') { %> 
+            id="active-link" 
+            <% } else { %> 
+                class="link" 
+            <% } %> 
+            href="/advertise">Advertise
+        </a>
+    </li>
+    <li>
+        <a <% if (page_name === 'contact') { %> 
+            id="active-link" 
+            <% } else { %> 
+                class="link" 
+            <% } %> 
+            href="/contact">Contact
+        </a>
+    </li>
+</ul>
+<!-- Burger -->
+<div class="burger">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+</div>
+<!-- Account Dropdown Options Box -->
+<div class="user-account" onclick="dropdownToggle(event)">
+    <i class="fas fa-user-circle" style="font-size: 25px; padding-right: 10px;"></i>
+    <p style="margin:0px"><%= accountName || 'Account' %></p>
+    <i class="fas fa-sort-down" style="font-size: 18px; padding-left: 10px; padding-bottom: 6px;"></i>
+</div>
+<ul style="padding-left: 0; margin: 0;" class="account-dropdown">
+    <% if (accountName !== null) { %>
+        <li>
+            <a href='/users/logout'><i class="fas fa-sign-in-alt" style="padding-right: 10px;"></i> Logout</a>
+        </li>
+    <% } else { %>
+        <li>
+            <a href='/users/login'><i class="fas fa-sign-in-alt" style="padding-right: 10px;"></i> Login</a>
+        </li>
+        <li>
+            <a href='/users/register'><i class="fas fa-user" style="padding-right: 10px;"></i> Register</a>
+        </li>
+    <% } %>
+</ul>

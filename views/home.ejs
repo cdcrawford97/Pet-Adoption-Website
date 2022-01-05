@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <!-- Icon Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+    
+    <section>
+        <!-- Hero Section -->
+        <div class="hero">
+            <!-- Hero Text -->
+            <div class="hero-text">
+                <h1 class="title">Find your <br><span>perfect</span> match</h1>
+                <h2 class="subtitle">
+                    When you adopt, you save a loving animal by making them part 
+                    of your family and open shelter space for another animal who might desparately need it.
+                </h2>
+            </div>
+            <!-- Search Box -->
+            <div class="search-box">
+                <div class="search-box-wrapper">
+                    <form id="home-search" method="get" action="/adoption">
+                        <h1>Pets for Adoption</h1>
+                        <label for="type">Pet Type</label>
+                        <label class="breed-label" for="breed">Pet Breed</label>
+                        <!-- Type -->
+                        <select id="type" name="type" class="boxes">
+                            <option value="" selected="selected">Pet Type (Any)</option>
+                        </select>
+                        <!-- Breed -->
+                        <select id="breed" name="breed" class="boxes">
+                                <option value="">Pet Breed (Any)</option>
+                        </select>
+                        <!-- Location -->
+                        <label for="location" class="location-label">Location</label>
+                        <input type="text" id="location" name="location" placeholder="Town or Postcode" class="boxes">
+                        <!-- Submit Button -->
+                        <input type="submit" value="Search" class="submit" formmethod="get">
+                    </form>
+                </div>
+            </div>
+            <!-- Hero image -->
+            <img src="images/hero-image.svg" class="hero-image" alt="hero-image">
+        </div>
+    </section>
+    <section>
+        <div class="about">
+            <h1 class="about-title">
+                Your new <span>best friend</span> <br>
+                is waiting for you
+            </h1>
+            <div class="about-wrapper">
+                <div class="infographic">
+                    <div class="circle">
+                        <div class="rotated-square"></div>
+                        <i class="fas fa-paw icon"></i>
+                    </div>
+                    <h2 class="heading">
+                        Huge animal database
+                    </h2>
+                    <p class="description">
+                        We help pets to find a loving family and become happy.
+                    </p>
+                </div>
+                <div class="infographic">
+                    <div class="circle">
+                        <div class="small-circle">
+                            <div class="small-square"></div>
+                        </div>
+                        <i class="fas fa-user-shield icon"></i>
+                    </div>
+                    <h2 class="heading">
+                        Trusted marketplace
+                    </h2>
+                    <p class="description">
+                        Only ID verified shelters, breeders and other sellers.
+                    </p>
+                </div>
+                <div class="infographic">
+                    <div class="circle">
+                        <div class="square"></div>
+                        <i class="fas fa-home icon"></i>
+                    </div>
+                    <h2 class="heading">
+                        Easy adoption process
+                    </h2>
+                    <p class="description">
+                        Get a new friend just in a few simple steps.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+    <script type="text/javascript" src="/javascripts/home.js"></script>
+</body>
+</html>

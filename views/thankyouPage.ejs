@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/thankyouPage.css">
+    <!-- Icon Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Adoption Application</title>
+</head>
+
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+    <section>
+        <div class="message-container">
+            <h1 id="thankyouMessage">Thank You For Submitting Your Adoption Application</h1>
+        </div>
+    
+        <div class="image-container">
+            <img src="/images/thankyou-image.svg" alt="thankyou-image">
+        </div>
+    </section>
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+</body>
+</html>

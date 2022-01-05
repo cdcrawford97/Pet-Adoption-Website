@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/adoption.css">
+    <!-- Icon Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Adoption</title>
+</head>
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+    <section>
+        <!-- Page Container -->
+        <div class="adoption-content">
+            <!-- Search Box -->
+            <form class="search-box" id="search" method="get" action="/adoption" onsubmit="disableEmptyInputs(this)">
+                <h1>Refine Search</h1>
+                <div class="search-options">
+                    <!-- Type -->
+                    <label class="main-labels" for="type">Pet Type</label>
+                    <select id="type" name="type" class="boxes">
+                        <option value="" selected>Pet Type (Any)</option>
+                    </select>
+                    <!-- Breed -->
+                    <label class="main-labels" for="pet-breed">Pet Breed</label>
+                    <select id="breed" name="breed" class="boxes">
+                            <option value="" selected>Pet Breed (Any)</option>
+                    </select>
+                </div>
+                <div class="search-options">
+                    <!-- Age -->
+                    <label class="main-labels" for="pet-age">Age</label>
+                    <select id= "age" name="age" class="boxes">
+                        <option value="" selected>Age (Any)</option>
+                        <option value="0-1">Less than 12 months</option>
+                        <option value="1-2">1-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="5-25">Older than 5 years</option>
+                    </select>
+                    <!-- Location -->
+                    <label class="main-labels" for="location">Location</label>
+                    <input type="text" value="<%= location %>" id="location" name="location" placeholder="Town or Postcode" class="boxes">
+                    <!-- Keywords -->
+                    <label class="main-labels" for="keywords">Keywords/Tags</label>
+                    <input type="text" value="<%= keywords %>" id="keywords" name="keywords" class="boxes">
+                    <h2>Criteria</h2>
+                </div>
+                <div class="search-options">
+                    <!-- Pet Friendly -->
+                    <label class="container">Pet Friendly
+                        <input type="checkbox" id="petFriendly" name="petFriendly" value="true">
+                        <span class="checkmark"></span>
+                    </label>
+                    <!-- Child Friendly -->
+                    <label class="container">Child Friendly
+                        <input type="checkbox" id="childFriendly" name="childFriendly" value="true">
+                        <span class="checkmark"></span>
+                    </label>
+                    <!-- Special Needs -->
+                    <label class="container">Special Needs
+                        <input type="checkbox" id="specialNeeds" name="specialNeeds" value="true">
+                        <span class="checkmark"></span>
+                    </label>
+                    <input type="hidden" id="sort" name="sort">
+                    <input type="hidden" id="page" name="page">
+                </div>
+
+                <!-- Submit Button -->
+                <input type="submit" id="submit" value="Update Search" class="submit">
+                <!-- Clear Button -->
+                <button class="clear" onclick="clearAll()">Clear</button>
+                
+            </form>
+
+            <!-- Header -->
+            <div class="header">
+                <h1>Pets for Adoption</h1>
+                <p id="search-desc">There are <%= total %>  <%= breed %> <%= type %> found in <%= location || "the UK" %>, which meet your criteria.</p>
+                <div id="sort">
+                    <label for="sort-by">Sort By:</label>
+                    <select name="sort-by" id="sort-dropdown" class="boxes" onchange="sortSubmitForm(this)">
+                        <option value="newest">Date Published (Newest)</option>
+                        <option value="oldest">Date Published (Oldest)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Adverts -->
+            <div class="adverts-container">
+                <% adverts.forEach(advert => { %>
+                    <div class="advert">
+                        <a class="image-container" href='advertise/<%= advert.id %>'>
+                            <img src="/uploads/<%= advert.images[0] %>" alt="pet-image">
+                        </a>
+                        <div class="details-container">
+                            <div class="advert-details">
+                                <div class="left-column">
+                                    <p class="pet-name"><%= advert.name %></p>
+                                    <a href='/adoption?breed=<%= advert.breed %>'><%= advert.breed %></a>
+                                    <p class="centre-name">RSPCA <%= advert.location %></p>
+                                </div>
+                                <div class="right-column">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p class="location"><%= advert.location %></p>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <div class="footer-item">
+                                    <% if (advert.gender == 'Male') { %>
+                                        <i class="fas fa-mars"></i>
+                                    <%} else if(advert.gender == 'Female') { %>
+                                        <i class="fas fa-venus"></i>
+                                    <% } %>
+                                    <p class="gender"><%= advert.gender %></p>
+                                </div>
+                                <div class="footer-item">
+                                    <i class="fas fa-gift"></i>
+                                    <p class="age"><%= advert.ageString %></p>
+                                </div>
+                                <div class="footer-item">
+                                    <i class="far fa-circle"></i>
+                                    <p class="tbc">TBC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            
+            <!-- Pagination -->
+            <% if (totalPages > 0) { %>
+                <div class="pagination">
+                    <% if (page == 1) { %>
+                        <button class="disabled">&laquo;</button>
+                    <% } else { %>
+                        <button value="<%= 0 %>" onclick="paginationSubmitForm(this)">&laquo;</button>
+                    <% } %>
+                    <% var i = (Number(page) > 5 ? Number(page) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <button class="disabled">...</button>
+                    <% } %>
+                    <% for (; i <= (Number(page) + 4) && i <= totalPages; i++) { %>
+                        <% if (i == page) { %>
+                            <button name="page" value="<%= i-1 %>" class="active" ><%= i %></button>
+                        <% } else { %>
+                            <button id="pagination-button" name="page" value="<%= i-1 %>" onclick="paginationSubmitForm(this)"><%= i %> </button>
+                        <% } %>
+                        <% if (i == Number(page) + 4 && i < totalPages) { %>
+                            <button class="disabled">...</button>
+                        <% } %>
+                    <% } %>
+                    <% if (page == totalPages) { %>
+                        <button class="disabled">&raquo;</button>
+                    <% } else { %>
+                        <button value="<%= totalPages - 1 %>" onclick="paginationSubmitForm(this)">&raquo;</button>
+                    <% } %>
+                </div>
+            <% } %>
+
+        </div>
+    </section>
+    
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+    <script type="text/javascript" src="/javascripts/adoption.js"></script>
+    <script>
+        checkSearch("<%= sort %>", "<%= type %>", "<%= breed %>");
+        checkAgeSearch("<%= age %>");
+        checkCheckBox("<%= petFriendly %>", "petFriendly");
+        checkCheckBox("<%= childFriendly %>", "childFriendly");
+        checkCheckBox("<%= specialNeeds %>", "specialNeeds");
+    </script>
+</body>
+</html>

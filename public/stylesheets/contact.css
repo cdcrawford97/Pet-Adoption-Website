@@ -1,0 +1,311 @@
+section{
+    background-color: var(--background-color);
+    height: auto;
+    padding: calc(9vh + 50px) 100px 100px 100px;
+}
+
+.section-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+    margin-bottom: 30px;
+}
+
+.section-title,
+.headquartersTitle{
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.section-subtitle{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-color-gray);
+    text-align: center;
+}
+
+/* Contact Form CSS */
+
+.email-form-wrapper{
+    height: 550px;
+    max-width: 1000px;
+    border-radius: .75rem;
+    padding: .5rem;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: var(--container-color);
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.email-form-wrapper .left-box{
+    background-color: var(--first-color);
+    height: 100%;
+    border-radius: 1rem;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-box .box-title{
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.left-box .box-desc{
+    color: var(--first-color-lighter);
+    opacity: 0.9;
+    font-size: 1rem;
+    line-height: 25px;
+}
+
+.contact-icons .icon-container{
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2.75rem;
+}
+
+.contact-icons .icon-container p{
+    color: #fff;
+    font-size: 1rem;
+}
+
+.contact-icons .icon-container i{
+    color: var(--second-color-lighter);
+    font-size: 1.3rem;
+}
+
+.social-media-icons{
+    display: flex;
+    gap: .5rem;
+}
+
+.social-media-icons a{
+    color: #fff;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: ease-in-out .2s;
+}
+
+.social-media-icons a:hover{
+    background-color: var(--second-color);
+}
+
+.half-disk{
+    position: absolute;
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    background-color: var(--second-color-lighter);
+    top: 370px;
+    left: 220px;
+}
+
+.circle{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: var(--second-color);
+    top: 355px;
+    left: 225px;
+}
+
+
+.email-form-wrapper .right-box{
+    padding: 2rem;
+}
+
+.right-box form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.name-fields,
+.contact-fields{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+    column-gap: 3rem;
+    row-gap: 2rem;
+}
+
+.field-container{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.field-container label{
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.field-container input,
+.field-container textarea{
+    border-bottom: 2px solid ;
+    border-style: none;
+    border: none;
+    border-bottom: 2px solid lightgray;
+    font-size: 1rem;
+    padding: 5px 0 10px 0;
+}
+
+
+.field-container input:focus,
+.field-container textarea:focus{
+    box-shadow: none;
+    border-bottom: 2px solid var(--first-color);
+}
+
+.submit-btn-container{
+    display: flex;
+    justify-content: end;
+}
+
+.submit-btn-container .submit{
+    background-color: var(--first-color);
+    color: #fff;
+    padding: 18px 35px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.submit-btn-container .submit:hover{
+    opacity: 0.85;
+}
+
+/* Map CSS */
+
+.divider {
+    width: 90%;
+    height: 2px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: var(--divider-color);
+}
+
+.headquartersTitle{
+    padding-bottom: 70px;
+}
+
+#mapid {
+    display: block;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 80%;
+    min-width: 250px;
+    margin-bottom: 5%;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* Media Queries - Contact Form */
+
+@media only screen and (max-width: 1100px) {
+    section{
+        padding: calc(9vh + 50px) 50px 100px 50px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    section{
+        padding: calc(9vh + 50px) 50px 100px 50px;
+    }
+    
+    .email-form-wrapper .left-box{
+        min-width: 360px
+    }
+
+    .email-form-wrapper{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .name-fields,
+    .contact-fields{
+        column-gap: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .email-form-wrapper{
+        height: auto;
+    }
+
+    .submit-btn-container .submit{
+        padding: 10px 20px;
+        font-size: .9rem;
+    }
+}
+
+@media only screen and (max-width: 665px) {
+
+    .email-form-wrapper{
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+
+    .box-header{
+        margin-bottom: 30px;
+    }
+
+    .email-form-wrapper .left-box{
+        min-width: auto;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .contact-icons{
+        display: none;
+    }
+
+    .email-form-wrapper .left-box{
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+
+    .email-form-wrapper .right-box{
+        padding: 1rem;
+    }
+
+    .left-box .box-title{
+        font-size: 1.3rem;
+    }
+
+    .left-box .box-desc{
+        font-size: .9rem;
+    }
+
+    .section-title{
+        font-size: 1.9rem;
+    }
+    
+    .section-subtitle{
+        font-size: 1.1rem;
+    }
+
+    .divider,
+    .headquartersTitle,
+    #mapid{
+        display: none;
+    }
+}

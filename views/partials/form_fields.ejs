@@ -1,0 +1,78 @@
+<h2>Pet Details</h2>
+<!-- Type -->
+<label class="main-labels" for="type">Pet Type *</label>
+<select required id="type" name="type" class="boxes">
+    <option disabled value="" selected>Select Pet Type</option>
+</select>
+<!-- Breed -->
+<label class="main-labels" for="breed">Pet Breed *</label>
+<select required id="breed" name="breed" class="boxes">
+    <option disabled value="" selected>Select Pet Breed</option>
+</select>
+<!-- Date -->
+<label class="main-labels" for="dob">Pet Date of Birth *</label>
+<input required id="dob" id="datePickerId" name="dob" type="date" class="boxes">
+<!-- Gender -->
+<label class="main-labels" for="gender">Pet Gender *</label>
+<select required id="gender" name="gender" class="boxes">
+        <option disabled selected>Select Pet Gender</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+</select>
+<!-- Pet Name -->
+<label class="main-labels" for="name">Pet Name *</label>
+<input required value="<%= advert.name %>" type="text" id="name" name="name" class="boxes">
+<!-- Pet Description -->
+<label class="main-labels" for="desc">Pet Description *</label>
+<textarea required id="desc" name="description" rows="5" cols="50" 
+class="boxes"><%= advert.description %></textarea>
+<!-- Keywords -->
+<label class="main-labels" id="keywords-label" for="keywords">Keywords/Tags</label>
+<input type="text" value="<%= advert.keywords %>" name="keywords" class="boxes">
+<!-- Upload Image -->
+<label class="main-labels" for="image-file">Images *</label>
+<input type="file" id="image-file" name="images" multiple required>
+<!-- Special Needs Checkbox -->
+<label class="container">Does the Pet have any Special Needs?
+    <input type="checkbox" id="specialNeeds" name="specialNeeds" value="true">
+    <span class="checkmark"></span>
+</label>
+<!-- Child Friendly Checkbox -->
+<label class="container">Is the Pet Child Friendly ?
+    <input type="checkbox" id="childFriendly" name="childFriendly" value="true">
+    <span class="checkmark"></span>
+</label>
+<!-- Pet Friendly Checkbox -->
+<label class="container">Is the Pet Friendly to other Pets ?
+    <input type="checkbox" id="petFriendly" name="petFriendly" value="true">
+    <span class="checkmark"></span>
+</label>
+<!-- Microchipped Checkbox -->
+<label class="container">Is the Pet Microchipped?
+    <input type="checkbox" id="microchipped" name="microchipped" value="true">
+    <span class="checkmark"></span>
+</label>
+<!-- Vaccinated Checkbox -->
+<label class="container">Are the Pets Vaccinations up to date ?
+    <input type="checkbox" id="vaccinated" name="vaccinated" value="true">
+    <span class="checkmark"></span>
+</label>
+<!-- Neutered Checkbox -->
+<label class="container">Has the Pet been Neutered ?
+    <input type="checkbox" id="neutered" name="neutered" value="true">
+    <span class="checkmark"></span>
+</label> 
+
+<h2>Location & Contact Details</h2>
+<!--Location-->
+<label class="main-labels" for="location">Town/Postcode *</label>
+<input required type="text" id="location" name="location" class="boxes" value="<%= advert.location %>">
+
+<!--Phone number-->
+<label class="main-labels" for="phone">Phone Number *</label>
+<input required  type="phone" id="phone" name="phone" class="boxes" value="<%= advert.phone %>">
+
+<!-- Submit Button -->
+<div id="submit-btn">
+    <input type="submit" value="Post Advert" class="submit">
+</div>

@@ -1,0 +1,202 @@
+.comment-section{
+    margin-bottom: 3rem;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.comment-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 50px;
+    margin-bottom: 40px;
+}
+
+#child-comment-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 50px;
+    margin-bottom: 40px;
+    margin-left: 200px
+}
+
+@media screen and (max-width: 660px) {
+    #child-comment-container{
+        margin-left: 20px;
+    }
+}
+
+.comment-block {
+    display: flex;
+    flex-direction: row;
+    background: #fdfdfd;
+    height: auto;
+    width: 700px;
+    border-radius: 15px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.name-date {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+@media screen and (max-width: 520px) {
+    .name-date{
+        flex-direction: column;
+    }
+}
+
+.reply{
+    cursor: pointer;
+    color: var(--first-color);
+    margin-left: 20px; 
+    margin-bottom: 10px;
+}
+
+.reply:hover{
+    opacity: 0.8;
+}
+
+/* Styling the reply to comment form */
+
+.reply-form{
+    margin: 0 50px;
+    margin-bottom: 50px;
+}
+
+
+.reply-form button{
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--first-color);
+    color:white;
+}
+
+.reply-form button:hover{
+    opacity: 0.8;
+}
+
+.reply-buttons-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 700px;
+    max-width: 100%;
+}
+
+.reply-form textarea {
+    font-size: .9rem;
+    max-width: 100%;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 700px;
+    background-color: #fdfdfd;
+    border-radius: 6px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    border: none;
+}
+
+#submit-comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin: 0 20px;
+}
+
+#comment-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#comment-form label{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#commentSubmit{
+    padding: 7px;
+    cursor: pointer;
+    max-width: 130px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--first-color);
+    color:white;
+}
+
+#commentSubmit:hover{
+    opacity: 0.8;
+}
+
+#comment-textarea{
+    font-size: .9rem;
+    height: 150px;
+    width: 500px;
+    padding: 10px;
+    background-color: #fdfdfd;
+    border-radius: 6px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    border: none;
+}
+
+
+@media screen and (max-width: 580px) {
+    #comment-textarea{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    #comment-textarea{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 350px) {
+    #comment-textarea{
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .comment-container {
+        padding: 0 0;
+    }
+
+    #child-comment-container {
+        padding: 0 0;
+    }
+}

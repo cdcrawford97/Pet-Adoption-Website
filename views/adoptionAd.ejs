@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./stylesheets/styles.css">
+    <link rel="stylesheet" href="./stylesheets/navbar.css">
+    <link rel="stylesheet" href="./stylesheets/footer.css">
+    <link rel="stylesheet" href="./stylesheets/adoptionAd.css">
+    <!-- Icon Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Advertise</title>
+</head>
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+
+    <section>
+        <div class="adoption-form-container">
+            <div class="adoption-form-wrapper">
+                <form id="adoption-form" method="POST" action="/advertise" enctype="multipart/form-data" >
+                    <!-- Form Title -->
+                    <h1 id="form-title">Create New Advert</h1>
+                    <!-- Form Description -->
+                    <p>Please enter your advert details below and click on the 'Post Advert' button to submit the advert. 
+                    Fields marked with an asterisk (*) are mandatory.</p>
+                    <!-- Form Fields -->
+                   <%- include('./partials/form_fields') %>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+    
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+    <script src="javascripts/adoptionAd.js"></script>
+    <script>
+        //restricts dob selection to less than current date
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("dob")[0].setAttribute('max', today);
+    </script>
+</body>
+</html>

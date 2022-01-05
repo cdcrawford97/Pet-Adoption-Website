@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/contact.css">
+    <!-- Icon Links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <!-- Map Link and Script -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <title>Contact</title>
+</head>
+
+<body>
+    <nav>
+        <%- include('./partials/navbar') %>
+    </nav>
+
+    <section>
+        <!-- Heading -->
+        <div class="section-header">
+            <h1 class="section-title">Contact Us</h1>
+            <h2 class="section-subtitle">Any questions? Just write us a message!</h2>
+        </div>
+        <!-- Contact Form -->
+        <div class="email-form-wrapper">
+            <div class="left-box">
+                <div class="box-header">
+                    <h1 class="box-title">Contact Information</h1>
+                    <p class="box-desc">Fill out the form and our Team will get back to you within 24 hours.</p>
+                </div>
+                <div class="contact-icons">
+                    <div class="icon-container">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+0123 4567 8910</p>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fas fa-envelope"></i>
+                        <p>PetAction@gmail.com</p>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>102 Street Sheffield</p>
+                    </div>
+                </div>
+                <div class="social-media-icons">
+                    <a href="https://www.facebook.com/"><span class="fab fa-facebook-f"></span></a>
+                    <a href="https://twitter.com/home"><span class="fab fa-twitter"></span></a>
+                    <a href="https://www.instagram.com/"><span class="fab fa-instagram"></span></a>
+                </div>
+                <div class="half-disk"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="right-box">
+                <form id="contact-form" method="POST" action="/contact" >
+                    <!-- Name -->
+                    <div class="name-fields">
+                        <div class="field-container">
+                            <label class="main-labels" for="name">First Name</label>
+                            <input 
+                                required type="text" 
+                                placeholder="First Name" 
+                                id="first-name" name="firstName" 
+                                class="boxes"
+                                value="<%= typeof name != 'undefined' ? firstName : '' %>"
+                            />
+                        </div>
+                        <div class="field-container">
+                            <label class="main-labels" for="name">Last Name</label>
+                            <input 
+                                required type="text" 
+                                placeholder="Last Name" 
+                                id="last-name" name="lastName" 
+                                class="boxes"
+                                value="<%= typeof lastName != 'undefined' ? lastName : '' %>"
+                            />
+                        </div>
+                    </div>
+                    <div class="contact-fields">
+                        <div class="field-container">
+                            <!-- Email -->
+                            <label class="main-labels" for="email">Email</label>
+                            <input 
+                                required 
+                                type="email" 
+                                placeholder="Email" 
+                                id="email" name="email" 
+                                class="boxes" 
+                                value="<%= typeof email != 'undefined' ? email : '' %>"
+                            />
+                        </div>
+                        <div class="field-container">
+                            <!-- Phone -->
+                            <label class="main-labels" for="email">Phone</label>
+                            <input 
+                                required 
+                                type="phone" 
+                                placeholder="Phone Number" 
+                                id="phone" name="phone" 
+                                class="boxes" 
+                                value="<%= typeof phone != 'undefined' ? phone : '' %>"
+                            />
+                        </div>
+                    </div>
+                    <div class="field-container">
+                        <label class="main-labels" for="desc">Message</label>
+                        <textarea name="message" id="" cols="5" rows="2" placeholder="Write your message..."></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="submit-btn-container">
+                        <input type="submit" value="Send Message" class="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!--Map-->
+        <h2 class="headquartersTitle">Our Headquaters</h2>
+        <div id="mapid"></div>
+    </section>
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+    <script type="text/javascript" src="/javascripts/main.js"></script>
+    <!-- Map JS -->
+    <script> 
+        var headquartersMap = L.map('mapid').setView([53.38141097616301, -1.4886267496052552], 16);
+        var marker = L.marker([53.38141097616301, -1.4886267496052552]).addTo(headquartersMap);
+        marker.bindPopup("<b>Pet Action</b>").openPopup();
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(headquartersMap);
+    </script>
+</body>
+</html>
