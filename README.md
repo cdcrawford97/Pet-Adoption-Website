@@ -61,7 +61,12 @@
 
 [![Adoption Search Page][product-screenshot]](https://example.com)
 
-desc...
+The project was inspired by the real-world problem that every individual faces when wanting to quickly and easily adopt a pet, which is a lack of any modern app or website that would simplify the whole process to just a few clicks.
+
+<b>Solution</b>:
+* Pooling all local rescue animals into one app, the search process is simplified
+* Allowing the user to set filters based on the animal and on their lifestyle
+* Providing an intuitive and easy to use UI 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -132,6 +137,8 @@ Use this space to show useful examples of how a project can be used. Additional 
 - [x] Add authentication
 - [x] Add faceted search
 - [x] Add comment section under adverts
+- [ ] Add animal reccomendation feature based on user location
+- [ ] Add donation feature
 - [ ] Add admin dashboard
     - [ ] adverts & users
     - [ ] statistics
@@ -182,16 +189,15 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github.com/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
+
+[contributors-shield]: https://img.shields.io/github/contributors/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
 [contributors-url]: https://github.com/cdcrawford97/Pet-Adoption-Website/graphs/contributors
-[forks-shield]: https://img.shields.io/github.com/cdcrawford97/Pet-Adoption-Websitesvg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
 [forks-url]: https://github.com/cdcrawford97/Pet-Adoption-Website/network/members
-[stars-shield]: https://img.shields.io/github.com/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
 [stars-url]: https://github.com/cdcrawford97/Pet-Adoption-Website/stargazers
-[issues-shield]: https://img.shields.io/github.com/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
 [issues-url]: https://github.com/cdcrawford97/Pet-Adoption-Website/issues
-[license-shield]: https://img.shields.io/github.com/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
 [license-url]: https://github.com/cdcrawford97/Pet-Adoption-Website/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: public/images/adoptionPage.png
