@@ -46,7 +46,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -59,7 +58,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Adoption Search Page][product-screenshot]](https://example.com)
+<kbd> <img src="public/images/adoptionPage.png" /> </kbd>
 
 The project was inspired by the real-world problem that every individual faces when wanting to quickly and easily adopt a pet, which is a lack of any modern app or website that would simplify the whole process to just a few clicks.
 
@@ -121,26 +120,17 @@ Download the latest version of Node.js and npm
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] Add authentication
 - [x] Add faceted search
+- [x] Add pagination
 - [x] Add comment section under adverts
-- [ ] Add animal reccomendation feature based on user location
+- [ ] Add animal recommendation feature based on user location
 - [ ] Add donation feature
 - [ ] Add admin dashboard
-    - [ ] adverts & users
+    - [ ] adverts, users & comments
     - [ ] statistics
 
 
@@ -200,4 +190,3 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [issues-url]: https://github.com/cdcrawford97/Pet-Adoption-Website/issues
 [license-shield]: https://img.shields.io/github/license/cdcrawford97/Pet-Adoption-Website.svg?style=for-the-badge
 [license-url]: https://github.com/cdcrawford97/Pet-Adoption-Website/blob/master/LICENSE.txt
-[product-screenshot]: public/images/adoptionPage.png
