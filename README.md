@@ -65,7 +65,7 @@ The project was inspired by the real-world problem that every individual faces w
 <b>Solution</b>:
 * Pooling all local rescue animals into one app, the search process is simplified
 * Allowing the user to set filters based on the animal and on their lifestyle
-* Providing an intuitive and easy to use UI 
+* Providing an intuitive and easy to use UI that is responsive to all devices sizes
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
