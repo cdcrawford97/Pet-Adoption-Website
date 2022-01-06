@@ -47,6 +47,11 @@
     <script type="text/javascript" src="/javascripts/main.js"></script>
     <script src="javascripts/adoptionAd.js"></script>
     <script>
+        window.onload = function() {
+            for (let x in petObject) {
+                petTypeSel.options[petTypeSel.options.length] = new Option(x, x);
+            };
+        };
         //restricts dob selection to less than current date
         var today = new Date().toISOString().split('T')[0];
         document.getElementsByName("dob")[0].setAttribute('max', today);
